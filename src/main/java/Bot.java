@@ -81,7 +81,7 @@ public class Bot {
                             message.append("Сейчас ничего не играет durak");
                         }
 
-                        twitchClient.getChat().sendMessage(event.getChannel().getName(), message.toString());
+                        event.reply(event.getTwitchChat(), message.toString());
                     }
 
                     @Override
@@ -110,3 +110,4 @@ public class Bot {
         twitchClient.close();
     }
 }
+
