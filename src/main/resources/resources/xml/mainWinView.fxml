@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainWinBP"
+      style="-fx-background-color: #2e2e2e;" focusTraversable="true"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="MainWinController">
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+
+    <top>
+        <Button fx:id="settingsBtn" onAction="#settingsBtnAction"
+                style="-fx-background-color: transparent; -fx-padding: 0;">
+            <BorderPane.margin>
+                <Insets top="10" left="10"/>
+            </BorderPane.margin>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <ToggleButton fx:id="startTB" onAction="#startBtnAction"
+                    style="-fx-background-color: transparent; -fx-padding: 0;">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </ToggleButton>
+            <Label fx:id="nicknameLbl" text="default"
+                   style="-fx-text-fill: #FFFFFF; -fx-font-size: 24px;"/>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" left="10" bottom="10"/>
+            </padding>
+            <TextArea fx:id="logsTA" editable="false" prefWidth="280" prefHeight="140" wrapText="true"/>
+            <ScrollPane fx:id="logsSP" accessibleText="True"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>

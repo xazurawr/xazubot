@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane fx:id="settingsWinBP"
+            style="-fx-background-color: #2e2e2e;" focusTraversable="true"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="SettingsWinController">
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+
+    <top>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints prefWidth="50" hgrow="NEVER"/>
+                <ColumnConstraints prefWidth="200" hgrow="ALWAYS" halignment="CENTER"/>
+                <ColumnConstraints prefWidth="50" hgrow="NEVER"/>
+            </columnConstraints>
+            <Button fx:id="backBtn" onAction="#backBtnAction"
+                    style="-fx-background-color: transparent; -fx-padding: 0;"
+                    GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Label fx:id="settingsLbl" text="Настройки"
+                   style="-fx-text-fill: #FFFFFF; -fx-font-size: 24px;"
+                   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        </GridPane>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="10" left="10" bottom="10"/>
+            </padding>
+            <TextField fx:id="nicknameTF" promptText="Имя канала" style="-fx-alignment: center"
+                       onAction="#nicknameTFAction"/>
+            <TextField fx:id="botCommandTF" promptText="Комманда для бота" style="-fx-alignment: center"
+                       onAction="#botCommandTFAction"/>
+            <TableView fx:id="integrationsTV">
+                <columns>
+                    <TableColumn fx:id="isConnectedCBColumn" text="Интеграции" prefWidth="270" resizable="false">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="isConnectedCB"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <Button fx:id="configIntegrationsBtn" text="Обновить список"
+                    onAction="#configIntegrationsBtnAction">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Button fx:id="openConfigBtn" text="Открыть файл конфигурации"
+                    onAction="#openConfigBtnAction">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+        </VBox>
+    </center>
+
+    <bottom>
+        <CheckBox fx:id="isMinToTrayCB" text="Сворачивать в трей?" onAction="#isMinToTrayCBAction"
+                  style="-fx-text-fill: #FFFFFF; -fx-font-size: 18px;"
+                  BorderPane.alignment="CENTER">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <padding>
+                <Insets bottom="10"/>
+            </padding>
+        </CheckBox>
+    </bottom>
+
+</BorderPane>
